@@ -164,10 +164,10 @@ int main(void){
     }
 
     //圧縮
-
+    int J=mH.column;
     int s[N-1][J];//圧縮ブロック
 
-
+    compress(mH,N,M,J,EX[N][M],H[mH.column][mH.weight],s[N-1][J]);
 
     
 
