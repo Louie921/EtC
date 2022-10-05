@@ -113,7 +113,7 @@ double correlation(int M,int key[M],int encr[M]){
 
 void compress(matrix mH ,int N,int M,int J,int EX[N][M],int H[mH.column][mH.weight],int s[N-1][J]){
     int m=0;
-    for(int n=0;n<N-1;n++){
+    for(int n=0;n<N;n++){
         for(int j=0;j<J;j++){
             s[n][j]=0;
             for(int d=0;d<mH.weight;d++){
@@ -167,9 +167,10 @@ int main(void){
     //Hの作成
     matrix mP0;
     mP0.weight=2;
-    int R=0.5;//圧縮率
-    mP0.row=M*R;
+    double R=0.5;//圧縮率
+    mP0.row=(M*R);
     mP0.column=mP0.row/2;
+    // printf("%d,%d,%d",M,mP0.row,mP0.column);
     int P0[mP0.column][mP0.weight];
     int C;//部分行列の数
     C=mP0.row/mP0.column;
