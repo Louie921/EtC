@@ -94,7 +94,25 @@ void mkplain(int M,int X[M]){//平文ブロック生成
     }
 }
 
+double correlation(int key[PACKNUM],int encr[PACKNUM]){
+  int n;
+  int err=0;
+
+  double p;
+
+  for(n=0;n<PACKNUM;n++){
+    if(key[n] != encr[n]){
+      err++;
+    }
+  }
+
+  p = ((double)err) / ((double)PACKNUM);
+
+  return p;
+}
+
 void compress(matrix mH ,int N,int M,int J,int EX[N][M],int H[mH.column][mH.weight],int s[N-1][J]){
+    int m=0;
     for(int n=0;n<N-1;n++){
         for(int j=0;j<J;j++){
             s[n][j]=0;
